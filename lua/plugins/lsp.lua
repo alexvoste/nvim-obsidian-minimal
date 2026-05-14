@@ -18,15 +18,10 @@ return {
             { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C)" },
           },
           root_dir = function(fname)
-            return require("lspconfig.util").root_pattern(
-              "Makefile",
-              "configure.ac",
-              "configure.in",
-              "config.h.in",
-              "compile_commands.json",
-              ".git"
-            )(fname) or vim.fs.dirname(fname)
+            local util = require("lspconfig.util")
+            return util.root_pattern("Makefile", "compile_commands.json", ".git")(fname) or util.path.dirname(fname)
           end,
+
           capabilities = {
             offsetEncoding = { "utf-16" },
           },
