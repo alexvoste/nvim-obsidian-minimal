@@ -1,0 +1,12 @@
+.DS_Store
+.netrwhist
+
+/lua/plugins/bin/
+/lazy-deps.json
+
+*.log
+.netrwhist
+/undo/
+
+/mason/
+
